@@ -13,21 +13,27 @@ namespace DragonSlaying
         public int Defense { get; set; }
         public int MaxHitPoints { get; set; }
         // TODO: Add any necessary fields
-        
+
         /// <summary>
         /// Keeps track of the number of hit points a Hero has. Cannot be less than 0
         /// (if a negative number is passed in, HitPoints will be set to 0 instead).
         /// </summary>
+        private int hitpoints;
         public int HitPoints
         {
             get
-            {
-                // TODO
-                throw new NotImplementedException();
+            {// TODO
+
+                return hitpoints ;
+              
             }
             set
-            {
-                // TODO
+            {// TODO
+
+                hitpoints = value;
+                if (hitpoints < -1)
+                    hitpoints = 0;
+
             }
         }
 
@@ -55,9 +61,15 @@ namespace DragonSlaying
         /// </summary>
         /// <returns>true if the Hero is alive, false if they are not</returns>
         public bool IsAlive()
-        {
-            // TODO
-            throw new NotImplementedException();
+        {// TODO
+         if (HitPoints > 0)
+            {
+                return true;
+            }
+         else
+            {
+                return false;
+            }      
         }
 
         /// <summary>
