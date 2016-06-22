@@ -8,7 +8,7 @@ namespace DragonSlaying
 {
     public class Die
     {
-        Random random;
+        Random random = new Random();
         public int NumberOfSides { get; set; }
 
         /// <summary>
@@ -16,6 +16,7 @@ namespace DragonSlaying
         /// </summary>
         public Die() : this(6)
         {
+            
         }
 
         /// <summary>
@@ -25,6 +26,7 @@ namespace DragonSlaying
         public Die(int numberOfSides)
         {// TODO
             numberOfSides = 20;
+            
         }
 
         /// <summary>
@@ -33,8 +35,7 @@ namespace DragonSlaying
         /// <returns>A random number between 1 and <see cref="NumberOfSides"/></returns>
         public int Roll()
         { // TODO
-
-            return random.Next(0, 21);
+            return random.Next(1,21);
         }
     }
 }

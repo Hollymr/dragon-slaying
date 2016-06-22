@@ -49,9 +49,16 @@ namespace DragonSlaying
         /// </summary>
         /// <returns></returns>
         public override string ToString()
-        {
-            // TODO
-            throw new NotImplementedException();
+        {// TODO
+            var sb = new StringBuilder();
+
+            sb.AppendLine(Name);
+            sb.AppendLine("==========");
+            sb.AppendFormat("Off: {0}\tDef: {1}\n", Offense, Defense);
+            sb.AppendFormat("HP: {0}/{1}\n", HitPoints, MaxHitPoints);
+
+            return sb.ToString();
+
         }
 
 
