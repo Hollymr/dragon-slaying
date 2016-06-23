@@ -90,7 +90,7 @@ namespace DragonSlaying
         /// <param name="diceRoll">A number (1-20) from a dice roll, relating to the effectiveness of the attack</param>
         public void Attack(Dragon opponent, int diceRoll)
         {// TODO
-            int heroDamage;
+            int dragonDamage;
             if (diceRoll == 1)
             {
                 Console.WriteLine("Attack FAILED!");
@@ -98,12 +98,10 @@ namespace DragonSlaying
             else if (diceRoll == 20)
             {
                 Console.WriteLine("ATTACK CRITICAL!!!");
-
-            }
-            
+            }            
             else
             {
-                heroDamage = (diceRoll + Offense);
+                dragonDamage = (diceRoll + Offense);
             }
 
           
@@ -119,8 +117,22 @@ namespace DragonSlaying
         /// <param name="opponent">The Dragon to attack</param>
         /// <param name="diceRoll">A number (1-20) from a dice roll, relating to the effectiveness of the block</param>
         public void Defend(Dragon opponent, int diceRoll)
-        {
-            // TODO
+        {// TODO
+            int heroDamage;
+            if (diceRoll == 1)
+            {
+                Console.WriteLine("Defense is a CRITICAL FAILURE!");
+
+            }
+            else if (diceRoll == 20)
+            {
+                Console.WriteLine("Attack BLOCKED!!");
+            }
+            else
+            {
+                heroDamage = (Dragon.Offense - diceRoll);
+            }
+
         }
     }
 }
