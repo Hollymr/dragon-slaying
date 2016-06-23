@@ -22,7 +22,7 @@ namespace DragonSlaying
             sb.AppendLine("==========");
             sb.AppendFormat("Off: {0}\tDef: {1}\n", Offense, Defense);
             sb.AppendFormat("HP: {0}/{1}\n", HitPoints, MaxHitPoints);
-
+            Console.WriteLine();
             return sb.ToString();
         }
 
@@ -32,7 +32,7 @@ namespace DragonSlaying
         /// </summary>
         /// <returns>true if the Dragon is alive, false if they are not</returns>
         public bool IsAlive()
-        {//TODO
+        {
             if(HitPoints > 0)
             {
                 return true;

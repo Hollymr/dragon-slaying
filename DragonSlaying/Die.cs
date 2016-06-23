@@ -8,15 +8,16 @@ namespace DragonSlaying
 {
     public class Die
     {
-        Random random = new Random();
+        Random random; //= new Random();
         public int NumberOfSides { get; set; }
 
         /// <summary>
         /// Constructs a 6-sided Die.
         /// </summary>
-        public Die() : this(6)
+        public Die() //: this(6) <-- could have done it this way as well 
         {
-            
+            random = new Random();
+            NumberOfSides = 6;
         }
 
         /// <summary>
@@ -24,8 +25,9 @@ namespace DragonSlaying
         /// </summary>
         /// <param name="numberOfSides">The number of sides on the Die</param>
         public Die(int numberOfSides)
-        {// TODO
-            numberOfSides = 20;
+        {
+            NumberOfSides = numberOfSides;
+            random = new Random();
             
         }
 
@@ -34,8 +36,8 @@ namespace DragonSlaying
         /// </summary>
         /// <returns>A random number between 1 and <see cref="NumberOfSides"/></returns>
         public int Roll()
-        { // TODO
-            return random.Next(1,21);
+        { 
+            return random.Next(1, NumberOfSides + 1);
         }
     }
 }

@@ -66,7 +66,7 @@ namespace DragonSlaying
             sb.AppendFormat("Off: {0}\tDef: {1}\n", Offense, Defense);
             sb.AppendFormat("HP: {0}/{1}\n", HitPoints, MaxHitPoints);
             sb.AppendFormat("Gold: 20", Gold);
-
+            Console.WriteLine();
             return sb.ToString();
 
         }
@@ -99,7 +99,7 @@ namespace DragonSlaying
         /// <param name="opponent">The Dragon to attack</param>
         /// <param name="diceRoll">A number (1-20) from a dice roll, relating to the effectiveness of the attack</param>
         public void Attack(Dragon opponent, int diceRoll)
-        {// TODO
+        {
             int dragonDamage = diceRoll + Offense - opponent.Defense;
             if (dragonDamage < 0)
             {
@@ -132,20 +132,22 @@ namespace DragonSlaying
         /// <param name="diceRoll">A number (1-20) from a dice roll, relating to the effectiveness of the block</param>
         public void Defend(Dragon opponent, int diceRoll)
         {// TODO
-            int heroDamage;
+            int heroDamage = opponent.Offense - diceRoll - Defense;
+            if (heroDamage < 0)
+            {
+                heroDamage = 0;
+            }
             if (diceRoll == 1)
             {
+                heroDamage = opponent.Offense;
                 Console.WriteLine("Defense is a CRITICAL FAILURE!");
-
             }
-            else if (diceRoll == 20)
+            if (diceRoll == 20)
             {
+                heroDamage = 0;
                 Console.WriteLine("Attack BLOCKED!!");
             }
-            else
-            {
-               // heroDamage = (Dragon.Offense - diceRoll);
-            }
+            HitPoints -= heroDamage;
 
         }
     }
