@@ -23,17 +23,25 @@ namespace DragonSlaying
         public int HitPoints
         {
             get
-            {// TODO
+            {
 
                 return hitpoints ;
               
             }
             set
-            {// TODO
-
-                hitpoints = value;
-                if (hitpoints < -1)
+            {
+                // What I first attempted to put in my set method.
+                //hitpoints = value;
+                //if (hitpoints < -1)
+                //    hitpoints = 0;
+                if (value < 0)
+                {
                     hitpoints = 0;
+                }
+                else
+                {
+                    hitpoints = value;
+                }
 
             }
         }
@@ -92,19 +100,23 @@ namespace DragonSlaying
         /// <param name="diceRoll">A number (1-20) from a dice roll, relating to the effectiveness of the attack</param>
         public void Attack(Dragon opponent, int diceRoll)
         {// TODO
-            int dragonDamage;
+            int dragonDamage = diceRoll + Offense - opponent.Defense;
+            if (dragonDamage < 0)
+            {
+                dragonDamage = 0;
+            }
             if (diceRoll == 1)
             {
+                dragonDamage = 0;
                 Console.WriteLine("Attack FAILED!");
             }
-            else if (diceRoll == 20)
+            if (diceRoll == 20)
             {
+                dragonDamage = Offense * 3;             
                 Console.WriteLine("ATTACK CRITICAL!!!");
-            }            
-            else
-            {
-                dragonDamage = (diceRoll + Offense);
             }
+            opponent.HitPoints -= dragonDamage;
+            //opponent.HitPoints = opponent.HitPoints - dragonDamage
 
           
         }
