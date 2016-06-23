@@ -90,6 +90,7 @@ namespace DragonSlaying
         /// <param name="diceRoll">A number (1-20) from a dice roll, relating to the effectiveness of the attack</param>
         public void Attack(Dragon opponent, int diceRoll)
         {// TODO
+            int heroDamage;
             if (diceRoll == 1)
             {
                 Console.WriteLine("Attack FAILED!");
@@ -102,7 +103,7 @@ namespace DragonSlaying
             
             else
             {
-                //diceRoll + MyHero.Offense - opponenet
+                heroDamage = (diceRoll + Offense);
             }
 
           
