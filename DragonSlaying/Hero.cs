@@ -12,6 +12,7 @@ namespace DragonSlaying
         public int Offense { get; set; }
         public int Defense { get; set; }
         public int MaxHitPoints { get; set; }
+        public int Gold { get; set; }
         // TODO: Add any necessary fields
 
         /// <summary>
@@ -56,6 +57,7 @@ namespace DragonSlaying
             sb.AppendLine("==========");
             sb.AppendFormat("Off: {0}\tDef: {1}\n", Offense, Defense);
             sb.AppendFormat("HP: {0}/{1}\n", HitPoints, MaxHitPoints);
+            sb.AppendFormat("Gold: 20", Gold);
 
             return sb.ToString();
 
@@ -130,7 +132,7 @@ namespace DragonSlaying
             }
             else
             {
-                heroDamage = (Dragon.Offense - diceRoll);
+               // heroDamage = (Dragon.Offense - diceRoll);
             }
 
         }
